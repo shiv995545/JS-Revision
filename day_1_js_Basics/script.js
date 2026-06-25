@@ -27,9 +27,8 @@
 // console.log(temp)
 
 
-
 // let a = 3
-// console.log(typeof(a))
+// console.log(typeof a)
 
 // a = 'a'
 // console.log(typeof(a))
@@ -343,27 +342,27 @@ let s3 = `Backticks`;
 
 
 
-let num = Math.floor(Math.random() * 10) + 1;
-console.log(num);
-let guess;
-let attempts = 0;
-let flag = false;
+// let num = Math.floor(Math.random() * 10) + 1;
+// console.log(num);
+// let guess;
+// let attempts = 0;
+// let flag = false;
 
-do {
-    guess = Number(prompt("Type your guess between 1 to 10"));
-    attempts++;
-    if (attempts > 5){
-        flag = true;
-        console.log("You Lose");
-        break;
-    }
-    if(guess > num) console.log("Big number typing");
-    else if(guess < num)    console.log("Too small")
-    console.log("Numberof attempts: ", attempts);
+// do {
+//     guess = Number(prompt("Type your guess between 1 to 10"));
+//     attempts++;
+//     if (attempts > 5){
+//         flag = true;
+//         console.log("You Lose");
+//         break;
+//     }
+//     if(guess > num) console.log("Big number typing");
+//     else if(guess < num)    console.log("Too small")
+//     console.log("Numberof attempts: ", attempts);
 
-} while (guess !== num);
-if (flag == false){
-    console.log("You Win");
-}
+// } while (guess !== num);
+// if (flag == false){
+//     console.log("You Win");
+// }
 
 

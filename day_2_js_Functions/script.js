@@ -63,7 +63,7 @@ const b = function(name){
 // })();
 
 
-//Scope Anylasis------------
+// Scope Anylasis------------
 // const j = 10;
 
 // function z(){
@@ -110,11 +110,11 @@ function sum(...num){
 // console.log(sum(10, "a", false))
 
 function add(a, b, c){
-    return a+b + c;
+    return a+b+c;
 }
 
-// console.log(add(5))
-// console.log(add(1,2,3,4,5,6))
+console.log(add(5))
+console.log(add(1,2,3,4,5,6))
 
 
 
