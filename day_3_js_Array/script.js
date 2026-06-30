@@ -183,3 +183,128 @@ console.log("Final Result:", result); */
 
 
 
+//=============Array Destructuring===============
+// Destructuring ka matlab - unpack values from arrays or properties from objects directly into distinct variables
+let arr = [1,2,3,4];
+
+//old way
+// let x = arr[0]
+// let y = arr[1]
+//.....
+
+//new way
+// let [p,q,r,s] = arr;
+// let [p,,r,s] = arr;
+
+
+//Defualt values
+let [p = 10, q = 20] = arr;
+
+
+
+// //swapping (variables)
+
+let x = 1, y = 2;
+// console.log(x,y);
+
+//1. using temp
+
+
+//2.  without temp
+// x = x + y   //x = 3
+// y = x - y   //y = 1
+// x = x - y   //x = 2
+
+//3. using XOR operator
+
+x = x ^ y;
+y = x ^ y;
+x = x ^ y;
+
+
+
+//4. using destructuring      ------    (only in js)
+
+[x,y] = [y,x];
+
+
+// console.log(x,y);
+
+
+
+
+//#=============Rest & Spread==============================
+
+
+//REST operator
+function sum(...num){
+  //num = [1,2,3,4,5]
+  return num.reduce((acc,b) => acc + b, 0);
+}
+// console.log(sum(1,2,3,4,5))
+
+
+//SPREAD operator
+
+// let j = [1,2,3]
+// let k = [..j]       // shallow copying
+// console.log(k)
+
+
+let nums = [1,2,3,4,5];
+let more = [0, ...nums, 6,7,8];       //shallow opying
+// console.log(nums, more)
+
+
+
+//=========Copying==============
+// 1. SHALLOW COPY  ------ an operation that creates a new object or array, but only copies the top-level values or memory references of the original
+// 2. DEEP COPY     ------ creates an entirely independent clone of an object.
+
+
+//shalllw copy
+arr1 = [1,2,3,[4,5]];
+arr2 = [...arr1];         //shallow copy
+
+// console.log('arr1-', arr1);
+// console.log('arr2-',arr2);
+
+arr2[3][1] = 100
+// arr2[3][2][1] = true;
+
+// console.log('arr1-', arr1);
+// console.log('arr2-',arr2);
+
+
+
+//deep copy
+const original = [1, 2, [3, 4]];
+
+const deepCopy = structuredClone(original);
+
+deepCopy[2][0] = 100;
+
+// console.log(original); // [1, 2, [3, 4]]
+// console.log(deepCopy); // [1, 2, [100, 4]]
+
+
+
+
+
+//Multi-Dimenional Array
+
+let matrix = [
+  [1,2,3],
+  [4,5,6],
+  [7,8,9]
+];
+
+// console.log(matrix[1][2]);
+
+// for(let row of matrix){
+//   for(let val of row){
+//     console.log(val);
+//   }
+// }
+
+
