@@ -20,7 +20,7 @@ Step 5. Test after each Step
 // 60+ = C
 // 60- = F
 
-/*
+
 let students = [
     {
         name : "Avdesh",
@@ -59,7 +59,7 @@ students.forEach(s => {
     avg = getAverage(s.marks);
     console.log(`${s.name} : Average = ${avg.toFixed(2)}, Grade : ${getGrade(avg)}`)
 })
-*/
+
 
 
 
