@@ -16,7 +16,7 @@ let user = {
 // 2. Accessing Properties
 
 // a. Dot Notation
-// console.log(user.name);
+// console.log(user.age);
 
 // b. Bracket Notation
 // console.log(user["age"])
@@ -29,37 +29,39 @@ let user = {
 
 
 
-// 3. CRUD - delete, update
+// // 3. CRUD - delete, update
 
-// ADD
-user.city = "Delhi"
-user["country"] = "India"
-
-
-//Update
-user.city = "Banaras"
-user["city"] = "Bhopal"
+// // ADD
+// user.city = "Delhi"
+// user["country"] = "India"
 
 
-//Delete
-delete user.country
+// //Update
+// user.city = "Banaras"
+// user["city"] = "Bhopal"
+// console.log(user)
+
+
+// //Delete
+// delete user.city
+// console.log(user)
 
 
 
 //4. methods - Functions inside an object
 
-let calculator = {
-    name : "Shivam",
+// let calculator = {
+//     name : "Shivam",
 
-    add : function(a,b){
-        return a + b;
-    },
-    subtract : (a,b) => {
-        return a - b;
-    },
-    multiply(a,b) { return a * b },
-    divide(a,b) { return a / b },
-};
+//     add : function(a,b){
+//         return a + b;
+//     },
+//     subtract : (a,b) => {
+//         return a - b;
+//     },
+//     multiply(a,b) { return a * b },
+//     divide(a,b) { return a / b },
+// };
 
 // console.log(calculator.add(3,2));
 // console.log(calculator.subtract(3,2));
@@ -68,7 +70,7 @@ let calculator = {
 
 
 
-// 5. Nested Objects
+// // 5. Nested Objects
 
 let user1 = {
     name : "Avdesh",
@@ -91,7 +93,7 @@ let user1 = {
 
 // Extract properties into variables, cleanly---------
 
-// let {name, age,height} = user1;
+// let {name, age, height} = user1;
 // console.log(name, age, height)
 
 
@@ -138,107 +140,107 @@ let updated = {...person, age : 80}
 
 
 
-// 8. Methods in Object --------------------------------
+// // 8. Methods in Object --------------------------------
 
-// console.log(Object.keys(person))
-// console.log(Object.values(person))
-// console.log(Object.entries(person))
+// // console.log(Object.keys(person))
+// // console.log(Object.values(person))
+// // console.log(Object.entries(person))
+
+// // Object.entries(person).forEach(([key, value]) => {
+// //     console.log(key + value)                                      //accessing key value pairs using forEach(iteration)
+// // })
+
+
+
+
+
+
+
+// //++++++++++++++++++++shallow and deep copy in objects+++++++++++++++++++
+
+
+// //we can use spread and assign to make shallow copy
+// let formed = Object.assign({}, user1)             //shallow copy
+
+// // formed.name = "Shivam"                       
+// // formed.address.city = "Mumbai"
+
+// // console.log(user1)                           //original
+// // console.log(formed)                          //copied
+
+
+
+// let formed1 = structuredClone(user1)                //deep copy
+
+// formed1.name = "Shivam"
+// formed1.address.city = "Mumbai"
+
+// // console.log(formed1)                     //copied
+// // console.log(user1)                      //original
+
+
+
+
+
+
+
+// //==========Object.freeze & Object.seal=====================
+
+// // Freeze ------- Prevents the modification of existing property attributes and values, and prevents the addition of new properties.
+// let animal = {
+//     name : "Dog",
+//     age : 20,
+//     breed : "Pet"
+// }
+// Object.freeze(animal)
+
+// animal.name = "Lion"
+// animal.mood = "Happy"
+// // console.log(animal)
+
+
+
+// // Seal ------ Prevents the modification of attributes of existing properties, and prevents the addition of new properties.
+// let animal2 = {
+//     name : "Dog",
+//     age : 20,
+//     breed : "Pet"
+// }
+// Object.seal(animal2)
+
+// animal2.name = "Lion"
+// animal2.mood = "Happy"
+// // console.log(animal2)
+
+
+
+
+
+
+// // 9. ========================LOOPS THROUGH OBJECTS==================
+
+
+// let color = {
+//     name : "Pink",
+//     kind : "Pastel",
+//     count : 10
+// }
+
+// for(let key in color){
+//     console.log(key, ":", color[key]);
+// }
+
+// Object.keys(color).forEach(key => {
+//     console.log(key, ":",  color[key]);
+// })
+
 
 // Object.entries(person).forEach(([key, value]) => {
 //     console.log(key + value)                                      //accessing key value pairs using forEach(iteration)
 // })
 
 
-
-
-
-
-
-//++++++++++++++++++++shallow and deep copy in objects+++++++++++++++++++
-
-
-//we can use spread and assign to make shallow copy
-let formed = Object.assign({}, user1)             //shallow copy
-
-// formed.name = "Shivam"                       
-// formed.address.city = "Mumbai"
-
-// console.log(user1)                           //original
-// console.log(formed)                          //copied
-
-
-
-let formed1 = structuredClone(user1)                //deep copy
-
-formed1.name = "Shivam"
-formed1.address.city = "Mumbai"
-
-// console.log(formed1)                     //copied
-// console.log(user1)                      //original
-
-
-
-
-
-
-
-//==========Object.freeze & Object.seal=====================
-
-// Freeze ------- Prevents the modification of existing property attributes and values, and prevents the addition of new properties.
-let animal = {
-    name : "Dog",
-    age : 20,
-    breed : "Pet"
-}
-Object.freeze(animal)
-
-animal.name = "Lion"
-animal.mood = "Happy"
-// console.log(animal)
-
-
-
-// Seal ------ Prevents the modification of attributes of existing properties, and prevents the addition of new properties.
-let animal2 = {
-    name : "Dog",
-    age : 20,
-    breed : "Pet"
-}
-Object.seal(animal2)
-
-animal2.name = "Lion"
-animal2.mood = "Happy"
-// console.log(animal2)
-
-
-
-
-
-
-// 9. ========================LOOPS THROUGH OBJECTS==================
-
-
-let color = {
-    name : "Pink",
-    kind : "Pastel",
-    count : 10
-}
-
-for(let key in color){
-    console.log(key, ":", color[key]);
-}
-
-Object.keys(color).forEach(key => {
-    console.log(key, ":",  color[key]);
-})
-
-
-Object.entries(person).forEach(([key, value]) => {
-    console.log(key + value)                                      //accessing key value pairs using forEach(iteration)
-})
-
-
-for(let [key, value] of Object.entries(color)) {
-    console.log(key, ":", value)
-}
+// for(let [key, value] of Object.entries(color)) {
+//     console.log(key, ":", value)
+// }
 

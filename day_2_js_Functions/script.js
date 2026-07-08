@@ -5,12 +5,14 @@
 2. Acessible
 3. Flexible
 4. Performance
+5. Maintable 
 */
 
 
 function calculateArea(length, breadth) {
     return length * breadth;                        //function declaration
 }
+// console.log(calculateArea(4,5))
 
 // console.log(calculateArea(3, 6))            //function calling
 // console.log(calculateArea(3, 8))
@@ -23,12 +25,12 @@ function a(){
     console.log("Hii guys A")
 }
 
-
 //Function Expression------------
 
 const b = function(name){
     console.log("Hii guys B",name)
 };
+
 
 
 //Anonymous Function-------------
@@ -58,27 +60,33 @@ const b = function(name){
 
 //IIFE------Immediately Invoked Function Operation--------
 
-// (function () {
+// (function()  {
 //     console.log("I run immediately!");
 // })();
 
-
 // Scope Anylasis------------
-// const j = 10;
+const j = 10;
 
-// function z(){
-//     if(true){
-//         var k = 20
-//         let l = 30
-//     }
-//     console.log(l)
-//     console.log(j)
-//     console.log(k)
-// }
-
+function z(){
+    if(true){
+        var k = 20
+        let l = 30
+        const p = 40
+    }
+    // console.log(l)
+    // console.log(j)
+    // console.log(k)
+    // console.log(p)
+}
+z()
+// console.log(p)
+// console.log(j)
 // console.log(k)
 // console.log(l)
 
+
+// let h = null
+// console.log(h)
 
 
 //.   Default Function-------------
@@ -93,12 +101,14 @@ let m = (name = "Guest") => {
 
 
 
+
+
 // Rest Parameters-----------------
 
 function sum(...num){
     let total = 0;
-    //  num = [1,2,3,4] 
-    console.log(num)
+    // console.log(num)
+    //  num = [1,2,3,4]
     for(let n of num){
         total = total + n;
     }
@@ -107,21 +117,22 @@ function sum(...num){
 
 // console.log(sum(1,2,3,4))
 // console.log(sum(10,20,30,40,50,60))
-// console.log(sum(10, "a", false))
+// console.log(sum(10, "a", false,[1,4,6]))
 
-function add(a, b, c){
+function add(a, b, c, ...d){
+    console.log(a,b,c,d)
     return a+b+c;
 }
 
-console.log(add(5))
-console.log(add(1,2,3,4,5,6))
+// console.log(add(5))
+// console.log(add(1,2,3,4,5,6))
 
 
 
 // Fucntions as First Class Citizens------------------------
 
 // 1. Store functions in variables
-// 2. Pass functions as arguments to other funstion
+// 2. Pass functions as arguments to other function
 // 3. Return Function from other function
 
 
@@ -141,8 +152,9 @@ function Shivam(name){
 // CallBack Functions-----------------------
 
 function who(name, cb){
+    // console.log(cb)
     console.log("Website logged in: ", name);
-    cb(name)                                 //api
+    cb(name)                                //api
     console.log("Watch movie")
 }
 
@@ -150,7 +162,7 @@ function welcome(name){
     console.log("Welcome, ", name);
     setTimeout(()=>{
         console.log("Image...")             //api response
-    },20000);
+    },5000);
 }
 
 // console.log(who("Aman", welcome));
@@ -185,13 +197,17 @@ function jodo(a, b){
 2. Side Effects: It modifies global state, changes the values of its inputs, alters the DOM, logs to the console, or communicates over a network.
 3. Non-deterministic Features: It utilizes functions that output random or time-dependent data.*/
 
-let total = 0;              //global variable
+let total = 0;             //global variable
 function joddo(...n){
-    // n = [1,2,3,4,5,6]
+    // n = [4,5,6]
     for(let num of n){
         total += num;
     }    
     return total;
 }
 // console.log(joddo(1,2,3))           // 6
-// console.log(joddo(4,5,6))           // 15
+// console.log(joddo(1,2,3))           // 12
+
+
+
+

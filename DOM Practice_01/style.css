@@ -1,0 +1,16 @@
+#Q4{
+    display: flex;
+    gap: 10px;
+    height: 20px;
+    align-items: center;
+    margin: 20px 30px;
+}
+
+
+.card{
+    display: flex;
+    gap: 10px;
+    height: 20px;
+    align-items: center;
+    margin: 20px 30px;
+}

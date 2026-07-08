@@ -17,12 +17,10 @@
 
 
 
-// const permanent = 3
+// const permanent = 3         //nhi kr skte
+
 // let temp = 4
-
-
-// // permanent = 4
-// console.log(permanent)
+// console.log(temp)
 // temp = 5
 // console.log(temp)
 
@@ -33,10 +31,10 @@
 // a = 'a'
 // console.log(typeof(a))
 
-// // let a = 5
+// let a = 5
 
-// var b = 5
-// var b = 'a'
+var b = 5
+var b = 'a'
 // console.log(b)
 
 //Naming Rules
