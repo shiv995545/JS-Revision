@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Manager</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main>
+        <nav>
+            <div id="title">
+                <img id="logo" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRMX21sN5_tQJZyETsfhZf89FdOI3JSonQt5ctwXhwF7A&s=10">
+                <div id="heading">
+                    <h2 id="main-heading">Task Manager</h2>
+                    <p>Organize, Prioritize, Achieve</p>
+                </div>
+            </div>
+            <div>
+                <button class = "addTask">+ Add New Task</button>
+            </div>
+        </nav>
+        <div class="search-main">
+            <div class="search">
+                <div class="input">
+                    <input type="text" placeholder="  Search Your Task">
+                </div>
+                <div id="filter">
+                    <label for="country"></label>
+                    <select id="All Categories">
+                        <option>All Categories</option>
+                        <option>HTML</option>
+                        <option>CSS</option>
+                        <option>JavaScript</option>
+                    </select>
+
+                    <button class="btn1">Clear Filters</button>
+                    <button class="btn2">Clear Tasks</button>
+                </div>   
+            </div>
+
+
+
+
+
+
+            
+            <div class="tasks">
+                <div id="pending">
+                    <div class="heading">
+                        <h3>🕒 Pending <span>0</span></h3>
+                    </div>
+                    
+                    <div class="empty-ext">
+                        <div class="empty-pending">
+                            <h1>📋</h1>
+                            <h3>No pending tasks</h3>
+                            <p>Tasks you add will appear here.</p>
+                        </div>
+                    </div>
+                </div>
+            
+                <div id="completed">
+                    <div class="heading">
+                        <h3>✔ Completed <span>0</span></h3>
+                    </div>
+            
+                    <div class="empty-ext">
+                        <div class="empty-completed">
+                            <h1>🐹</h1>
+                            <h3>No completed tasks</h3>
+                            <p>Completed tasks will appear here.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        
+    </main>
+
+
+
+    <script src="script.js"></script>
+</body>
+</html>
