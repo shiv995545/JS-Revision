@@ -2,6 +2,13 @@ const addTask = document.querySelector(".addTask")
 const btn1 = document.querySelector(".btn1")
 const btn2 = document.querySelector(".btn2")
 const input = document.querySelector(".input")
+const overlay = document.querySelector("#overlay")
+const btnclose = document.querySelector("#close")
+const createTaskInner = document.querySelector("#create-task-inner")
+const emptyExt = document.querySelector(".empty-ext")
+const form = document.querySelector("form")
+const emptyPending = document.querySelector(".empty-pending");
+
 
 
 addTask.onclick = () => {
@@ -36,10 +43,40 @@ input.addEventListener("mouseleave", () => {
     input.classList.remove("inputExtend");
 });
 
+//====================================================
+
+
+function createTask(e) {
+    e.preventDefault()
+    emptyExt.style.display = "none"
+    overlay.style.display = "none"
+    emptyPending.remove()
+    createCard()
+}
+
+function createCard() {
+    pass
+    //Dom element bnao div
+    //class add kro
+    //empty-ext mai appendChild krdo
+}
 
 
 
 
+addTask.addEventListener("click", () => {
+    overlay.style.display = "flex"
+})
+
+btnclose.addEventListener("click", () => {
+    overlay.style.display = "none"
+})
+
+
+
+form.addEventListener("submit", (e) => {
+    createTask(e)
+})
 
 
 
