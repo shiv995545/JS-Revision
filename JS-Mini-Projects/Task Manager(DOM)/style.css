@@ -119,6 +119,8 @@ nav {
     box-shadow: 0px 4px 10px rgba(173, 125, 172, 0.316);
     color: black;
     padding: 10px;
+    transition:.3s;
+
 }
 
 .inputExtend input {
@@ -127,6 +129,7 @@ nav {
     border-radius: 20px;
     border: 1px solid grey;
     padding: 10px;
+    transition:.3s;
 }
 
 #filter{
@@ -230,12 +233,18 @@ select {
 
 
 .empty-ext {
-    padding: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
+    flex: 1;                 
+    overflow-y: auto;    
+    padding: 16px;
 }
+
+.empty-ext-1 {
+    flex: 1;                 
+    overflow-y: auto;    
+    padding: 16px;
+}
+
+
 .empty-pending{
     border: 1px dashed rgba(127, 77, 136, 0.203);
     background-color: rgba(194, 157, 225, 0.124);
@@ -310,6 +319,15 @@ select {
     flex-direction: column;
 }
 
+.form{
+    transition:.3s;
+}
+
+.form:hover{
+    transform:translateY(-4px);
+    box-shadow:0 14px 30px rgba(0,0,0,.12);
+}
+
 form {
     width: 50%;
     display: flex;
@@ -355,9 +373,132 @@ input{
     justify-content: center;
 }
 
-.abc {
-    height: 20px;
-    width: 20px;
 
-    background-color: red;
+
+
+/* This section if for the dynamic task card */
+
+.task-card{
+    width:100%;
+    background:#fff;
+    border-radius:18px;
+    padding:18px 22px;
+
+    display:flex;
+    align-items:center;
+    gap:20px;
+
+    border:1px solid #ececec;
+    box-shadow:0 8px 20px rgba(0,0,0,.08);
+
+    transition:.3s;
+}
+
+.task-card:hover{
+    transform:translateY(-4px);
+    box-shadow:0 14px 30px rgba(0,0,0,.12);
+}
+
+
+
+/* Content */
+
+.content{
+    flex:1;
+}
+
+.content h3{
+    font-size:20px;
+    color:#222;
+    margin-bottom:8px;
+}
+
+.content p{
+    color:#666;
+    font-size:15px;
+    line-height:1.5;
+    margin-bottom:14px;
+}
+
+/* Category */
+
+.category{
+    display:inline-block;
+    padding:7px 16px;
+    border-radius:30px;
+    background:#f3efff;
+    color:#6d4aff;
+    font-weight:600;
+    font-size:14px;
+}
+
+/* Buttons */
+
+.actions{
+    display:flex;
+    gap:12px;
+}
+
+.actions button{
+    width:42px;
+    height:42px;
+
+    border:none;
+    border-radius:12px;
+    cursor:pointer;
+
+    font-size:17px;
+
+    transition:.25s;
+}
+
+/* Edit */
+
+.edit{
+    background:#eef2ff;
+    color:#5a4eff80;
+}
+
+.edit img{
+    height: 60%;
+    width: 60%;
+}
+
+.edit:hover{
+    background:#9c95fe89;
+    color:white;
+}
+
+/* Delete */
+
+.delete{
+    background:#ffecec;
+    color:#ef44449d;
+}
+
+.delete img{
+    height: 60%;
+    width: 60%;
+}
+
+.delete:hover{
+    background:#ef444485;
+    color:white;
+}
+
+/* Completed Task */
+
+.complete{
+    background:#ecfff1;
+    color:#44ef699d;
+}
+
+.complete img{
+    height: 60%;
+    width: 60%;
+}
+
+.complete:hover{
+    background:#44ef6985;
+    color:white;
 }
