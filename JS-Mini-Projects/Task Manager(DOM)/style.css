@@ -111,26 +111,52 @@ nav {
     
 }
 
+
+.input{
+    height:70%;
+    width: 100%;
+    display: flex;
+    align-items: left;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+}
+
 .input input{
-    height: 40px;
-    width: 200px;
-    border-radius: 10px;
+    height: 40%;
+    width: 20%;
+    border-radius: 20px;
     border: 1px solid grey;
     box-shadow: 0px 4px 10px rgba(173, 125, 172, 0.316);
     color: black;
-    padding: 10px;
     transition:.3s;
-
 }
 
 .inputExtend input {
-    height: 40px;
-    width: 500px;
+    height: 60%;
+    width: 40%;
     border-radius: 20px;
     border: 1px solid grey;
-    padding: 10px;
-    transition:.3s;
+    box-shadow: 0px 4px 10px rgba(173, 125, 172, 0.316);
+    color: black;
+    transition:.7s;
 }
+
+#search-btn{
+    height: 100%;
+    width: 10%;
+    border-radius: 10px;
+    color: black;
+    background-color: rgb(255, 255, 255);
+    border: 1px solid rgb(213, 195, 195);
+    box-sizing:content-box;
+    box-shadow: 0px 4px 10px rgba(4, 148, 143, 0.496);
+    cursor: pointer;
+    font-weight: bolder;
+}
+
+
+
 
 #filter{
     height: 30px;
@@ -270,15 +296,15 @@ select {
     flex-direction: column;
 }
 
-.empty-completed h1,h3,p {
+.empty-pending p,h3{
     color: rgb(52, 33, 201);
-    font-size: 13px;
-    padding: 5px;
 }
 
-.empty-pending h1,h3,p {
+.empty-completed h3,p{
     color: rgb(20, 128, 65);
 }
+
+
 .empty-pending h3{
     padding-top: 10px;
 }
@@ -303,6 +329,65 @@ select {
     width: 100%;
     border-radius: 20px;
 }
+
+/* ============================================== */
+
+#searched{
+    height: 100%;
+    width: 50%;
+    border-radius: 30px;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid rgba(197, 171, 171, 0.429);
+    box-shadow: 0px 4px 10px rgba(233, 170, 231, 0.496);
+    border-radius: 15px 15px 0 0;
+}
+
+#searched .heading {
+    background-color: rgba(217, 79, 120, 0.256);
+}
+
+#searched .heading h3 {
+    color: rgb(193, 10, 92);
+    font-size: large;
+}
+
+.empty-ext-searched {
+    flex: 1;                 
+    overflow-y: auto;    
+    padding: 16px;
+}
+
+
+.empty-searched{
+    border: 1px dashed rgba(136, 77, 92, 0.203);
+    background-color: rgba(165, 220, 165, 0.124);
+    border-radius: 10px;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.empty-searched h3 {
+    color: rgb(201, 33, 55);
+    font-size: 15px;
+    padding: 5px;
+}
+.empty-searched p {
+    color: rgb(201, 33, 72);
+    font-size: 15px;
+    padding: 5px;
+}
+
+.empty-searched h1 {
+    font-size: xx-large;
+}
+
+/* ============================================== */
+
 
 
 

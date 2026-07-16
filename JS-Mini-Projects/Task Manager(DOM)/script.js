@@ -9,8 +9,9 @@ const emptyExt = document.querySelector(".empty-ext")
 const emptyExt1 = document.querySelector(".empty-ext-1")
 const pend_span = document.querySelector("#pend")
 const comp_span = document.querySelector("#comp")
+const tasks = document.querySelector(".tasks")
 
-const form = document.querySelector("form")
+const overlayForm = document.querySelector("#overlay-form")
 const emptyPending = document.querySelector(".empty-pending");
 
 
@@ -152,14 +153,28 @@ btnclose.addEventListener("click", () => {
 
 
 
-form.addEventListener("submit", (e) => {
+overlayForm.addEventListener("submit", (e) => {
     e.preventDefault()
 
+    let id = crypto.randomUUID()
+    let title = e.target[0].value
+    let description = e.target[1].value
+    
+    let category = e.target[2].value
+
+
+    if(title.trim() === "" || description.trim() === "" || category.trim() === ""){
+        alert("Please enter the fields")
+        return
+    }
+
+
+
     let obj = {
-        id: crypto.randomUUID(),
-        title : e.target[0].value,
-        description : e.target[1].value,
-        category : e.target[2].value
+        id,
+        title,
+        description,
+        category
     }
 
     if (updateIndex !== null) {
@@ -171,7 +186,7 @@ form.addEventListener("submit", (e) => {
       localStorage.setItem("tasks", JSON.stringify(task_arr));
     }
     createTask()
-    form.reset();
+    overlayForm.reset();
 })
 
 
@@ -230,4 +245,35 @@ const completeTask = (id) => {
         emptyExt.appendChild(emptyPending);
         return;
     }
+}
+
+
+// ==========================================================
+
+
+input.addEventListener("submit", (e) => {
+    e.preventDefault()
+    searchData = e.target[0].value
+    
+    searchTask()
+})
+
+
+
+function searchTask() {
+    tasks.innerHTML = `<div id="searched">
+                    <div class="heading">
+                        <h3> Searched Tasks</h3>
+                    </div>
+            
+                    <div class="empty-ext-searched">
+
+
+                        <div class="empty-searched">
+                            <h1>🐹</h1>
+                            <h3>No tasks</h3>
+                            <p>Tasks will appear here.</p>
+                        </div>
+                    </div>
+                </div>`;
 }

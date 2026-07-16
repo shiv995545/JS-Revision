@@ -22,16 +22,18 @@
         </nav>
         <div class="search-main">
             <div class="search">
-                <div class="input">
+                <form class="input">
                     <input type="text" placeholder="  Search Your Task">
-                </div>
+                    <button id="search-btn">Search</button>
+                </form>
                 <div id="filter">
                     <label for="country"></label>
                     <select id="All Categories">
-                        <option>All Categories</option>
+                        <option value="" disabled selected hidden>Choose Category</option>
                         <option>HTML</option>
                         <option>CSS</option>
                         <option>JavaScript</option>
+                        <option>Other</option>
                     </select>
 
                     <button class="btn1">Clear Filters</button>
@@ -39,8 +41,7 @@
                 </div>   
             </div>
 
-
-
+            
             <div class="tasks">
                 <div id="pending">
                     <div class="heading">
@@ -84,8 +85,6 @@
                     </div>
             
                     <div class="empty-ext-1">
-
-
                         <div class="empty-completed">
                             <h1>🐹</h1>
                             <h3>No completed tasks</h3>
@@ -103,7 +102,7 @@
             <div class="top">
                 <h1 id="close">x</h1>
             </div>
-            <form>
+            <form id="overlay-form">
                 <h1>Create Tasks</h1>
                 <h4>Title</h4>
                 <input type="text" placeholder="Enter Title">
