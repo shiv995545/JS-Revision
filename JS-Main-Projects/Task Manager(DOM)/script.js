@@ -10,9 +10,13 @@ const emptyExt1 = document.querySelector(".empty-ext-1")
 const pend_span = document.querySelector("#pend")
 const comp_span = document.querySelector("#comp")
 const tasks = document.querySelector(".tasks")
-
 const overlayForm = document.querySelector("#overlay-form")
 const emptyPending = document.querySelector(".empty-pending");
+const pending = document.querySelector("#pending");
+const notFound = document.querySelector("#not-found")
+const topFound = document.querySelector("#top-found")
+
+
 
 
 
@@ -24,21 +28,21 @@ addTask.onclick = () => {
     }, 100);
 }
 
-btn1.onclick = () => {
-    btn1.classList.replace("btn1","btnChange")
+// btn1.onclick = () => {
+//     btn1.classList.replace("btn1","btnChange")
 
-    setTimeout(() => {
-        btn1.classList.replace("btnChange","btn1")
-    }, 20);
-}
+//     setTimeout(() => {
+//         btn1.classList.replace("btnChange","btn1")
+//     }, 20);
+// }
 
-btn2.onclick = () => {
-    btn2.classList.replace("btn2","btnChange")
+// btn2.onclick = () => {
+//     btn2.classList.replace("btn2","btnChange")
 
-    setTimeout(() => {
-        btn2.classList.replace("btnChange","btn2")
-    }, 20);
-}
+//     setTimeout(() => {
+//         btn2.classList.replace("btnChange","btn2")
+//     }, 20);
+// }
 
 input.addEventListener("mouseenter", () => {
     input.classList.add("inputExtend");
@@ -54,12 +58,14 @@ input.addEventListener("mouseleave", () => {
 let task_arr = JSON.parse(localStorage.getItem("tasks")) || []
 let complete_arr = JSON.parse(localStorage.getItem("completetasks")) || []
 
+let result_arr = []
+
 
 let updateIndex = null;
 
-let count1 = JSON.parse(localStorage.getItem("count1")) || 0;
 let count2 = JSON.parse(localStorage.getItem("count2")) || 0;
 
+let searchData = "";
 
 
 
@@ -71,10 +77,7 @@ function createTask() {
     overlay.style.display = "none"
 
     createCard()
-
-    count1++;
-    pend_span.textContent = `${count1}`
-    localStorage.setItem("count1", JSON.stringify(count1))
+    
 
     if (task_arr.length === 0) {
         emptyPending.style.display = "flex";
@@ -98,15 +101,15 @@ function createCard() {
                         
                             <div class="actions">
                                 <button onclick="updateTask('${obj.id}')" class="edit">
-                                    <img src="https://www.svgrepo.com/show/503019/edit.svg" alt="">
+                                    <img src="/JS/JS-Main-Projects/Task Manager(DOM)/images/edit.svg" alt="">
                                 </button>
                         
                                 <button onclick="deleteTask('${obj.id}')" class="delete">
-                                    <img src="https://www.svgrepo.com/show/511788/delete-1487.svg" alt="">
+                                    <img src="/JS/JS-Main-Projects/Task Manager(DOM)/images/delete-1487.svg" alt="">
                                 </button>
 
                                 <button onclick="completeTask('${obj.id}')" class="complete">
-                                    <img src="https://www.svgrepo.com/show/501519/complete.svg" alt="">
+                                    <img src="/JS/JS-Main-Projects/Task Manager(DOM)/images/complete.svg" alt="">
                                 </button>
                             </div>
                         </div>`;
@@ -139,7 +142,7 @@ if(complete_arr.length > 0){
     completeCard()
 }
 
-pend_span.textContent = `${count1}`
+pend_span.textContent = `${task_arr.length}`
 comp_span.textContent = `${count2}`
 
 
@@ -159,7 +162,6 @@ overlayForm.addEventListener("submit", (e) => {
     let id = crypto.randomUUID()
     let title = e.target[0].value
     let description = e.target[1].value
-    
     let category = e.target[2].value
 
 
@@ -184,6 +186,8 @@ overlayForm.addEventListener("submit", (e) => {
     } else {
       task_arr.push(obj);
       localStorage.setItem("tasks", JSON.stringify(task_arr));
+      pend_span.textContent = `${task_arr.length}`
+      localStorage.setItem("count1", JSON.stringify(task_arr.length))
     }
     createTask()
     overlayForm.reset();
@@ -197,9 +201,9 @@ const updateTask = (id) => {
 
   createTaskInner.textContent = "Update"
 
-  form[0].value = task.title;
-  form[1].value = task.description;
-  form[2].value = task.category;
+  overlayForm[0].value = task.title;
+  overlayForm[1].value = task.description;
+  overlayForm[2].value = task.category;
 
 
 };
@@ -210,9 +214,8 @@ const deleteTask = (id) => {
     createCard()
     localStorage.setItem("tasks", JSON.stringify(task_arr));
 
-    count1--;
-    pend_span.textContent = `${count1}`
-    localStorage.setItem("count1", JSON.stringify(count1))
+    pend_span.textContent = `${task_arr.length}`
+    localStorage.setItem("count1", JSON.stringify(task_arr.length))
 
     if (task_arr.length === 0) {
         emptyPending.style.display = "flex";
@@ -223,57 +226,95 @@ const deleteTask = (id) => {
 
 
 const completeTask = (id) => {
-    complete_task = task_arr.find((elem) => elem.id === id)
-    task_arr = task_arr.filter((elem) => elem.id !== id)
 
-    localStorage.setItem("tasks", JSON.stringify(task_arr));
-    createCard()
+    let confirmation = confirm("Are you sure")
+    
 
-    complete_arr.unshift(complete_task);
-    localStorage.setItem("completetasks", JSON.stringify(complete_arr))
-    completeCard()
+    if(confirmation){
+        complete_task = task_arr.find((elem) => elem.id === id);
+        task_arr = task_arr.filter((elem) => elem.id !== id);
 
-    count2++;
-    count1--;
-    pend_span.textContent = `${count1}`
-    comp_span.textContent = `${count2}`
-    localStorage.setItem("count1", JSON.stringify(count1))
-    localStorage.setItem("count2", JSON.stringify(count2))
+        localStorage.setItem("tasks", JSON.stringify(task_arr));
+        createCard();
 
-    if (task_arr.length === 0) {
-        emptyPending.style.display = "flex";
-        emptyExt.appendChild(emptyPending);
-        return;
+        complete_arr.unshift(complete_task);
+        localStorage.setItem("completetasks", JSON.stringify(complete_arr));
+        completeCard();
+
+        count2++;
+        pend_span.textContent = `${task_arr.length}`;
+        comp_span.textContent = `${count2}`;
+        localStorage.setItem("count1", JSON.stringify(task_arr.length));
+        localStorage.setItem("count2", JSON.stringify(count2));
+
+        if (task_arr.length === 0) {
+          emptyPending.style.display = "flex";
+          emptyExt.appendChild(emptyPending);
+          return;
+        }
+    }else{
+        return
     }
+
+    
 }
 
 
 // ==========================================================
 
-
-input.addEventListener("submit", (e) => {
-    e.preventDefault()
-    searchData = e.target[0].value
+function searchTask(search) {
+    result_arr = task_arr.filter((obj) => 
+        [obj.title, obj.description, obj.category].some((value) => 
+            String(value).toLowerCase().includes(search)
+        ));
     
-    searchTask()
+    pend_span.textContent = `${result_arr.length}`
+
+    if (result_arr.length === 0) {
+        emptyExt.innerHTML = `<div style = "background-color: rgba(255, 0, 0, 0.13)"; class="empty-completed">
+                            <h3 style="color: red;font-size: xx-large;">❌No tasks found</h3>
+                        </div>`
+        return;
+    }
+
+    showSearchTask()
+}
+
+
+function showSearchTask() {
+        emptyExt.innerHTML = ""
+        result_arr.forEach((elem) => {
+            emptyExt.innerHTML += `<div class="task-card">
+                            <div class="content">
+                                <h3>${elem.title}</h3>
+                                <p>${elem.description}</p>
+                        
+                                <span class="category">${elem.category}</span>
+                            </div>
+                        
+                            <div class="actions">
+                                <button onclick="updateTask('${elem.id}')" class="edit">
+                                    <img src="https://www.svgrepo.com/show/503019/edit.svg" alt="">
+                                </button>
+                        
+                                <button onclick="deleteTask('${elem.id}')" class="delete">
+                                    <img src="https://www.svgrepo.com/show/511788/delete-1487.svg" alt="">
+                                </button>
+
+                                <button onclick="completeTask('${elem.id}')" class="complete">
+                                    <img src="https://www.svgrepo.com/show/501519/complete.svg" alt="">
+                                </button>
+                            </div>
+                        </div>`;
+    })    
+}
+
+input.addEventListener("input", (e) => {
+    e.preventDefault()
+    searchData = e.target.value.trim()
+    
+    searchTask(searchData.toLowerCase())
 })
 
 
 
-function searchTask() {
-    tasks.innerHTML = `<div id="searched">
-                    <div class="heading">
-                        <h3> Searched Tasks</h3>
-                    </div>
-            
-                    <div class="empty-ext-searched">
-
-
-                        <div class="empty-searched">
-                            <h1>🐹</h1>
-                            <h3>No tasks</h3>
-                            <p>Tasks will appear here.</p>
-                        </div>
-                    </div>
-                </div>`;
-}

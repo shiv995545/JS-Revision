@@ -88,7 +88,7 @@ nav {
 
 
 .search-main{
-    height: 75%;
+    height: 85%;
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -105,36 +105,37 @@ nav {
     height: 20%;
     width: 100%;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     padding-left: 30px;
-    
 }
 
 
 .input{
-    height:70%;
-    width: 100%;
+    height:75%;
+    width: 50%;
     display: flex;
-    align-items: left;
+    align-items: center;
     justify-content: center;
+    flex-direction: row;
     margin: 0;
     padding: 0;
 }
 
 .input input{
-    height: 40%;
-    width: 20%;
+    height: 60px;
+    width: 40%;
     border-radius: 20px;
     border: 1px solid grey;
     box-shadow: 0px 4px 10px rgba(173, 125, 172, 0.316);
     color: black;
     transition:.3s;
+    
 }
 
 .inputExtend input {
-    height: 60%;
-    width: 40%;
+    height: 60px;
+    width: 100%;
     border-radius: 20px;
     border: 1px solid grey;
     box-shadow: 0px 4px 10px rgba(173, 125, 172, 0.316);
@@ -143,9 +144,9 @@ nav {
 }
 
 #search-btn{
-    height: 100%;
-    width: 10%;
-    border-radius: 10px;
+    height: 50px;
+    width: 15%;
+    border-radius: 30px;
     color: black;
     background-color: rgb(255, 255, 255);
     border: 1px solid rgb(213, 195, 195);
@@ -153,6 +154,7 @@ nav {
     box-shadow: 0px 4px 10px rgba(4, 148, 143, 0.496);
     cursor: pointer;
     font-weight: bolder;
+    margin-right: 100px;
 }
 
 
@@ -330,7 +332,14 @@ select {
     border-radius: 20px;
 }
 
-/* ============================================== */
+
+
+
+
+
+
+
+/* ==============================================
 
 #searched{
     height: 100%;
@@ -391,6 +400,59 @@ select {
 
 
 
+
+
+
+/* ================================================== */
+
+/* overlay when nothing is found 
+
+#not-found{
+    background-color: rgba(0, 0, 0, 0.771);
+    height: 100%;
+    width: 100%;
+    position : absolute;
+    top: 0;
+    left: 0;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#top-found{
+    display: flex;
+    width: 40%;
+    color: white;
+    font-size: 20px;
+    justify-content: flex-end;
+}
+
+#top-found h1{
+    cursor: pointer;
+}
+
+#not-found-head{
+    height: 40%;
+    width: 40%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(255, 47, 0, 0.667);
+    border-radius: 20px;
+    font-size: xx-large;
+    border: 1px solid rgba(197, 171, 171, 0.429);
+    box-shadow: 0px 4px 200px rgb(255, 2, 2);
+}
+
+#not-found-head h2 {
+    color: white;
+    font-family: -s;
+}
+
+
+========================================================== */
+
 #overlay {
     background-color: rgba(0, 0, 0, 0.771);
     height: 100%;
@@ -404,11 +466,11 @@ select {
     flex-direction: column;
 }
 
-.form{
+#overlay-form{
     transition:.3s;
 }
 
-.form:hover{
+#overlay-form:hover{
     transform:translateY(-4px);
     box-shadow:0 14px 30px rgba(0,0,0,.12);
 }
